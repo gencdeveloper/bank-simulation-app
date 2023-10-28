@@ -7,6 +7,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 public class BankSimulationAppApplication {
 
     public static void main(String[] args) {
+        //This is your configuration class and runner class with SpringBoot
         SpringApplication.run(BankSimulationAppApplication.class, args);
     }
 
