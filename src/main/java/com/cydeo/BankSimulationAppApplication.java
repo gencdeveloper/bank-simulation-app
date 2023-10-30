@@ -25,9 +25,13 @@ public class BankSimulationAppApplication {
         //create 2 accounts sender and receiver
         Account sender = accountService.createNewAccount(BigDecimal.valueOf(70), new Date(), AccountType.CHECKING, 1L);
         Account receiver = accountService.createNewAccount(BigDecimal.valueOf(50), new Date(), AccountType.CHECKING, 2L);
-        Account receiver2 = null;
+        Account receive2 = accountService.createNewAccount(BigDecimal.valueOf(150), new Date(), AccountType.SAVING, 2L);
+        Account receive3 = accountService.createNewAccount(BigDecimal.valueOf(250), new Date(), AccountType.CHECKING, 2L);
+        Account receive4 = accountService.createNewAccount(BigDecimal.valueOf(550), new Date(), AccountType.SAVING, 2L);
+
+        // Account receiver2 = null;
         //with happy path test
-        transactionService.makeTransfer(sender,receiver,new BigDecimal(40),new Date(),"Transaction 1");
+       // transactionService.makeTransfer(sender,receiver,new BigDecimal(40),new Date(),"Transaction 1");
 
 //        System.out.println(transactionService.findAllTransaction().get(0));
 //

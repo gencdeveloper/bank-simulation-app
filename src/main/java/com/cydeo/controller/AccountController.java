@@ -23,4 +23,10 @@ public class AccountController {
         model.addAttribute("accountList",accountService.listAllAccount());
         return "account/index";
     }
+
+    @GetMapping("/create-account")
+    public String getCreateForm() {
+
+        return "account/create-account"; // This should match the name of your HTML template.
+    }
 }
