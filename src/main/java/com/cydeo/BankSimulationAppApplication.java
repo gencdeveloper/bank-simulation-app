@@ -29,9 +29,9 @@ public class BankSimulationAppApplication {
         //with happy path test
         transactionService.makeTransfer(sender,receiver,new BigDecimal(40),new Date(),"Transaction 1");
 
-        System.out.println(transactionService.findAllTransaction().get(0));
-
-        accountService.listAllAccount().forEach(System.out::println);
+//        System.out.println(transactionService.findAllTransaction().get(0));
+//
+//        accountService.listAllAccount().forEach(System.out::println);
 
         //with negative path test for BalanceNotSufficientException
 
