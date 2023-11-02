@@ -4,10 +4,8 @@ import com.cydeo.model.Transaction;
 import org.springframework.stereotype.Component;
 
 import java.time.temporal.TemporalAdjuster;
+import java.util.*;
 import java.util.ArrayList;
-import java.util.ArrayList;
-import java.util.Comparator;
-import java.util.List;
 import java.util.stream.Collectors;
 
 @Component
@@ -29,6 +27,13 @@ public class TransactionRepository {
         return transactionList.stream()
                 .sorted(Comparator.comparing(Transaction::getCreateDate).reversed())
                 .limit(10)
+                .collect(Collectors.toList());
+    }
+
+    public List<Transaction> findTransactionListByAccountId(UUID id) {
+        //if account id is used either as a sender or receiver, return those transactions
+        return transactionList.stream()
+                .filter(transaction -> transaction.getSender().equals(id) || transaction.getReceiver().equals(id))
                 .collect(Collectors.toList());
     }
 }

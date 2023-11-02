@@ -14,7 +14,7 @@
             <div class="row">
                 <div class="col-md-6">
                     <div>
-                        <form th:object="${transaction}" action="#">
+                        <form th:object="${transaction}"  th:action="@{/transfer}" method="post">
                             <div class="row">
                                 <div class="form-group blu-margin">
                                     <label for="sender" class="col-form-label">Sender</label>
@@ -47,7 +47,7 @@
                             </div>
                             <div class="row">
                                 <div class="col-md-6 my-5">
-                                    <input type="submit" class="btn btn-primary" value="Make transfer">
+                                    <input type="submit" th:href="@{/create-transfer}" class="btn btn-primary" value="Make transfer">
                                 </div>
                             </div>
                         </form>
@@ -64,16 +64,16 @@
                                 </tr>
                             </thead>
                             <tbody>
-                                <tr >
-                                    <td></td>
-                                    <td></td>
-                                    <td></td>
-                                    <td></td>
-                                    <td></td>
+                                <tr th:each="lasttransaction : ${lastTransactions}">
+                                    <td th:text="${lasttransaction.getSender()}"></td>
+                                    <td th:text="${lasttransaction.getReceiver()}"></td>
+                                    <td th:text="${lasttransaction.getAmount()}"></td>
+                                    <td th:text="${lasttransaction.getCreateDate()}"></td>
+                                    <td th:text="${lasttransaction.getMessage()}"></td>
                                 </tr>
                             </tbody>
                         </table>
-                        <p class="my-5"><a href="#" class="btn btn-primary">Home Page</a></p>
+                        <p class="my-5"><a th:href="@{/index}" class="btn btn-primary">Home Page</a></p>
                     </div>
                 </div>
             </div>
