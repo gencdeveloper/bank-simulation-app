@@ -48,8 +48,12 @@ public class AccountController {
     }
 
     @PostMapping("/create") //create a method to capture information from ui
-    public String createAccount(@ModelAttribute("account") Account account) {
+    public String createAccount(@Valid @ModelAttribute("account") Account account,BindingResult bindingResult, Model model) {
 
+        if(bindingResult.hasErrors()){
+            model.addAttribute("accountTypes", AccountType.values());
+            return "account/create-account";
+        }
         //trigger createNewAccount method, create the account based on the user
             accountService.createNewAccount(account.getBalance(),new Date(),account.getAccountType(),account.getUserId());
 
