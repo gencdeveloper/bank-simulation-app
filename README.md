@@ -38,7 +38,6 @@ The project follows an organized structure based on the Model-View-Controller (M
 - `src/main/java/com/cydeo/service/`: Service classes and implementation
 - `src/main/java/com/cydeo/BankSimulationAppApplication.java`: Main application class
 
-## How to Run
 
 ## How to Run
 
