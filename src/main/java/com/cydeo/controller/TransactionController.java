@@ -14,7 +14,6 @@ import org.springframework.web.bind.annotation.PostMapping;
 
 import javax.validation.Valid;
 import java.util.Date;
-import java.util.UUID;
 
 @Controller
 public class TransactionController {
@@ -67,7 +66,7 @@ public class TransactionController {
     }
 
     @GetMapping("/transaction/{id}")
-    public String getTransactionList(@PathVariable("id") UUID id, Model model){
+    public String getTransactionList(@PathVariable("id") Long id, Model model){
 
         model.addAttribute("transactions",transactionService.findTransactionListById(id));
 

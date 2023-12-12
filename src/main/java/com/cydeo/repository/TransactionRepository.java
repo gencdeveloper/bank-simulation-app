@@ -29,7 +29,7 @@ public class TransactionRepository {
                 .collect(Collectors.toList());
     }
 
-    public List<TransactionDTO> findTransactionListByAccountId(UUID id) {
+    public List<TransactionDTO> findTransactionListByAccountId(Long id) {
         //if account id is used either as a sender or receiver, return those transactions
         return transactionDTOList.stream()
                 .filter(transactionDTO -> transactionDTO.getSender().equals(id) || transactionDTO.getReceiver().equals(id))
