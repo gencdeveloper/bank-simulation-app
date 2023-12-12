@@ -1,6 +1,6 @@
 # Bank Simulation App
 
-Bank Simulation App is an example project created using Spring Boot. This application is designed to simulate banking operations, allowing users to view accounts, perform money transfers, and manage account transactions.
+Bank Simulation App is an example project created using Spring Boot. This application is designed to simulate banking operations, allowing users to view accounts, perform money transfers, and manage accountDTO transactions.
 
 ## Project Details
 
