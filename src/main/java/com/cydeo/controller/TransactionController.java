@@ -56,8 +56,8 @@ public class TransactionController {
 
         //I have UUID of accounts but i need to provide Account object.
         //I need to find the Accounts based on the ID that I have and use as a parameter complete makeTransfer method.
-        AccountDTO sender = accountService.retrieveById(transactionDTO.getSender());
-        AccountDTO receiver = accountService.retrieveById(transactionDTO.getReceiver());
+        AccountDTO sender = accountService.retrieveById(transactionDTO.getSender().getId());
+        AccountDTO receiver = accountService.retrieveById(transactionDTO.getReceiver().getId());
 
         transactionService.makeTransfer(sender,receiver, transactionDTO.getAmount(),new Date(), transactionDTO.getMessage());
 
