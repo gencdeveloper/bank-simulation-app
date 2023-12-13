@@ -32,7 +32,7 @@ public class AccountServiceImpl implements AccountService {
 
     @Override
     public List<AccountDTO> listAllAccount() {
-
+        //we are getting list of account but we need to return list of AccountDTO
         return accountRepository.findAll();
     }
 
