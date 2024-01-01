@@ -35,22 +35,21 @@
           </thead>
           <tbody>
           <tr th:each="accountDTO : ${accountList}">
-            <td th:text="${accountDTO.userId}"></td>
+            <td th:text="${accountDTO.userId}" ></td>
             <td th:text="${accountDTO.accountStatus}"></td>
-            <td th:text="${accountDTO.balance}"></td>
-            <td th:text="${accountDTO.accountType}"></td>
-            <td th:text="${accountDTO.creationDate}"></td>
+            <td th:text="${accountDTO.balance}" ></td>
+            <td th:text="${accountDTO.accountType}" ></td>
+            <td th:text="${accountDTO.creationDate}" ></td>
             <td>
-              <a th:if="${accountDTO.accountStatus.name() == 'ACTIVE'}" class="btn btn-danger" th:href="@{/delete/{id}(id=${accountDTO.id})}">Delete </a>
-              <a th:if="${accountDTO.accountStatus.name() == 'DELETED'}" class="btn btn-success" th:href="@{/activate/{id}(id=${accountDTO.id})}">Activate </a>
+              <a th:if="${accountDTO.accountStatus.name()=='ACTIVE'}" class="btn btn-danger" th:href="@{/delete/{id}(id=${accountDTO.id})}">Delete</a>
+              <a th:if="${accountDTO.accountStatus.name()=='DELETED'}" class="btn btn-success" th:href="@{/activate/{id}(id=${accountDTO.id})}">Activate</a>
             </td>
-
-            <td> <a class="btn btn-success" th:href="@{/transactionDTO/{id}(id=${accountDTO.id})}">Account Transaction</a> </td>
+            <td><a class="btn btn-success" th:href="@{/transaction/{id}(id=${accountDTO.id})}">Account Transaction</a></td>
           </tr>
           </tbody>
         </table>
       </div>
-      <p class="my-5"><a th:href="@{/create-accountDTO}" class="btn btn-primary">Create Account<i class="fas fa-user-plus ml-2"></i></a></p>
+      <p class="my-5"><a th:href="@{/create-form}" class="btn btn-primary">Create Account<i class="fas fa-user-plus ml-2"></i></a></p>
       <p class="my-5"><a th:href="@{/make-transfer}" class="btn btn-primary">Make Transfer<i class="fas fa-user-plus ml-2"></i></a></p>
     </div>
   </div>
