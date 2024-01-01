@@ -1,5 +1,6 @@
 package com.cydeo.controller;
 
+import com.cydeo.entity.Account;
 import com.cydeo.enums.AccountType;
 import com.cydeo.dto.AccountDTO;
 import com.cydeo.service.AccountService;
@@ -46,17 +47,19 @@ public class AccountController {
         return "account/create-account"; // This should match the name of your HTML template.
     }
 
-    @PostMapping("/create") //create a method to capture information from ui
-    public String createAccount(@Valid @ModelAttribute("account") AccountDTO accountDTO, BindingResult bindingResult, Model model) {
-
+    //create a method to capture information from ui
+    //print them on the console.
+    //trigger createNewAccount method, create the account based on the user input.
+    //once user created return back to the index page.
+    @PostMapping("/create")
+    public String createAccount(@Valid @ModelAttribute("accountDTO") AccountDTO accountDTO, BindingResult bindingResult, Model model){
         if(bindingResult.hasErrors()){
+
             model.addAttribute("accountTypes", AccountType.values());
             return "account/create-account";
         }
-        //trigger createNewAccount method, create the account based on the user
-            accountService.createNewAccount(accountDTO.getBalance(),new Date(), accountDTO.getAccountType(), accountDTO.getUserId());
-
-        // once user created return back to the index page.
+        System.out.println(accountDTO);
+        accountService.createNewAccount(accountDTO);
         return "redirect:/index";
     }
 
