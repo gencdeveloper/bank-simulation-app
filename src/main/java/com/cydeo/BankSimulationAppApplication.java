@@ -5,17 +5,20 @@ import com.cydeo.service.TransactionService;
 import org.modelmapper.ModelMapper;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.context.ApplicationContext;
 import org.springframework.context.ConfigurableApplicationContext;
 import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.ComponentScan;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 
 @SpringBootApplication
+
 public class BankSimulationAppApplication {
 
     public static void main(String[] args) {
         //This is your configuration class and runner class with SpringBoot
-        ConfigurableApplicationContext container = SpringApplication.run(BankSimulationAppApplication.class, args);
+        ApplicationContext container = SpringApplication.run(BankSimulationAppApplication.class, args);
 
         //get account and transaction service beans
         AccountService accountService = container.getBean(AccountService.class);

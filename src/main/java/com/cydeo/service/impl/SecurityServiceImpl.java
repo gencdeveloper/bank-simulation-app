@@ -1,12 +1,15 @@
 package com.cydeo.service.impl;
 
 import com.cydeo.entity.User;
-import com.cydeo.entity.common.UserPrinciple;
+import com.cydeo.entity.common.UserPrincipal;
+
 import com.cydeo.repository.UserRepository;
 import com.cydeo.service.SecurityService;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
+import org.springframework.stereotype.Service;
 
+@Service
 public class SecurityServiceImpl implements SecurityService {
 
     private final UserRepository userRepository;
@@ -25,7 +28,7 @@ public class SecurityServiceImpl implements SecurityService {
         }
         //return user information as a UserDetails
 
-        return new UserPrinciple(user);
+        return new UserPrincipal(user);
 
 
     }

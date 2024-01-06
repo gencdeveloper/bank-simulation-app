@@ -2,10 +2,12 @@ package com.cydeo.config;
 
 import com.cydeo.service.SecurityService;
 import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.Configuration;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.web.SecurityFilterChain;
 import org.springframework.security.web.util.matcher.AntPathRequestMatcher;
 
+@Configuration
 public class SecurityConfig {
 
     private final SecurityService securityService;
@@ -15,6 +17,7 @@ public class SecurityConfig {
         this.securityService = securityService;
         this.authSuccessHandler = authSuccessHandler;
     }
+
     @Bean
     public SecurityFilterChain filterChain(HttpSecurity http) throws Exception {
 
@@ -43,5 +46,6 @@ public class SecurityConfig {
                 .and().build();
 
     }
+
 
 }
